@@ -1,11 +1,11 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "schemaVersion": "1.0",
+  "schemaVersion": "1.1",
   "lastUpdated": "2026-07-10",
   "site": {
     "name": "Guillermo Barbeito",
-    "title": "Guillermo Barbeito — Producción audiovisual, comunicación y tecnología",
-    "description": "Portfolio profesional de Guillermo Barbeito: productor audiovisual, estudiante avanzado de Comunicación Audiovisual, creador y desarrollador de herramientas para proyectos creativos.",
+    "title": "Guillermo Barbeito — Producción audiovisual y tecnología aplicada",
+    "description": "Portfolio profesional de Guillermo Barbeito, productor audiovisual con base técnica orientado a streaming, formatos digitales y sistemas de producción.",
     "url": "https://jrrguille-bit.github.io/guillermo-barbeito/",
     "language": "es-UY",
     "location": "Montevideo, Uruguay",
@@ -18,11 +18,11 @@
   },
   "person": {
     "name": "Guillermo Barbeito",
-    "headline": "Productor audiovisual, creador y desarrollador de herramientas para proyectos creativos.",
-    "summary": "Estudiante avanzado de Comunicación Audiovisual, ingeniero en informática y con más de diez años siguiendo el ecosistema de YouTube y streaming.",
+    "headline": "Productor audiovisual con base técnica, orientado a streaming, formatos digitales y sistemas de producción.",
+    "summary": "Estudiante avanzado de Comunicación Audiovisual e ingeniero en informática. Combino producción, coordinación y desarrollo de herramientas para convertir ideas creativas en procesos concretos.",
     "profile": [
-      "Curso el cuarto año de Comunicación Audiovisual en la Universidad Católica del Uruguay. El egreso está previsto para 2027, una vez finalizada la tesis. Ya trabajo en creación, desarrollo y producción de proyectos audiovisuales.",
-      "Mi formación como ingeniero en informática y mi experiencia en producto, soporte, automatización e inteligencia artificial me permiten traducir necesidades creativas en procesos y herramientas concretas."
+      "Curso el cuarto año de Comunicación Audiovisual en la Universidad Católica del Uruguay, con egreso previsto para 2027 una vez finalizada la tesis. Desarrollo proyectos de creación, guion y producción audiovisual.",
+      "Mi formación como ingeniero en informática y mi experiencia en producto, soporte, automatización e inteligencia artificial me permiten traducir necesidades creativas en procesos claros y herramientas concretas."
     ],
     "contact": {
       "email": "gbarbeitor@yahoo.com",
@@ -38,7 +38,7 @@
     },
     "cv": {
       "file": "Guillermo-Barbeito-CV.pdf",
-      "downloadLabel": "Descargar CV en PDF"
+      "downloadLabel": "Descargar versión en PDF"
     }
   },
   "education": [
@@ -56,9 +56,9 @@
     }
   ],
   "focus": {
-    "areas": ["Producción audiovisual", "Streaming", "Formatos digitales"],
+    "areas": ["Producción audiovisual", "Streaming", "Formatos digitales", "Sistemas de producción"],
     "technicalBase": ["Software", "Inteligencia artificial aplicada", "Gestión de producto"],
-    "audienceKnowledge": "Más de diez años siguiendo la evolución de YouTube y el streaming angloparlante: formatos en vivo y bajo demanda, creadores, comunidades, lenguaje de plataforma e interacción con audiencias."
+    "audienceKnowledge": "Más de diez años de seguimiento del ecosistema angloparlante de YouTube y streaming: formatos en vivo y bajo demanda, creadores, comunidades, lenguaje de plataforma e interacción con audiencias."
   },
   "audiovisualProjects": [
     {
@@ -67,7 +67,7 @@
       "type": "Serie de ficción",
       "status": "En desarrollo",
       "roles": ["Cocreador", "Coguionista"],
-      "description": "Serie de seis episodios, comedia negra y thriller político, cocreada y coescrita con Maite Piñeyrúa Segura. Actualmente en desarrollo con coproducción ejecutiva de SKA Films.",
+      "description": "Serie de seis episodios que combina comedia negra y thriller político, cocreada y coescrita con Maite Piñeyrúa Segura. El proyecto está en desarrollo con coproducción ejecutiva de SKA Films.",
       "recognitions": ["Fondo de Incentivo Cultural", "Málaga Talent 2025", "DETOUR Series Lab"],
       "page": "https://jrrguille-bit.github.io/Nadie-Publico/",
       "repository": "https://github.com/JRRGUILLE-bit/Nadie-Publico",
@@ -85,7 +85,7 @@
       "context": "48 Hour Film Project Uruguay",
       "team": "EA",
       "role": "Productor",
-      "description": "Cortometraje realizado dentro de un plazo de 48 horas."
+      "description": "Cortometraje realizado por el equipo EA. Producción integral y entrega dentro de un plazo de 48 horas."
     },
     {
       "id": "una-vez-casi-hice-un-gol",
@@ -93,14 +93,14 @@
       "year": 2025,
       "context": "Festival de Cine Nuevo DETOUR",
       "role": "Productor",
-      "description": "Cortometraje realizado para el desafío de comedia en una sola toma."
+      "description": "Cortometraje realizado para el desafío de comedia en plano secuencia."
     },
     {
       "id": "eco",
       "title": "ECO",
       "context": "Proyecto académico",
       "role": "Montaje",
-      "description": "Cortometraje estudiantil. Montaje compartido con Manuela Calvar."
+      "description": "Cortometraje académico. Montaje realizado junto a Manuela Calvar."
     }
   ],
   "softwareProjects": [
@@ -111,14 +111,14 @@
       "repositoryVisibility": "Privado",
       "platform": "Linux",
       "technology": ["Python", "SHA-256"],
-      "description": "Herramienta local para ingesta audiovisual. Copia una fuente hacia dos destinos independientes, verifica el Triángulo Dorado con hashes SHA-256 y genera reportes de ingesta legibles para el equipo.",
-      "safety": "No formatea, no borra ni modifica el material original."
+      "description": "Herramienta local de ingesta audiovisual. Copia el material desde una fuente a dos destinos independientes, verifica el Triángulo Dorado mediante hashes SHA-256 y genera reportes legibles para el equipo.",
+      "safety": "No formatea, borra ni modifica el material original."
     },
     {
       "id": "jona-ensayos",
       "title": "Jona — Ensayos",
       "technology": ["HTML", "JavaScript", "Google Apps Script", "Google Sheets"],
-      "description": "Formulario responsive para relevar disponibilidad de actores y organizar fechas.",
+      "description": "Formulario web adaptable para relevar la disponibilidad de actores y organizar fechas.",
       "page": "https://jrrguille-bit.github.io/jona-ensayos/",
       "repository": "https://github.com/JRRGUILLE-bit/jona-ensayos"
     },
@@ -126,7 +126,7 @@
       "id": "jona-logistica",
       "title": "Jona — Logística",
       "technology": ["Responsive web", "Data", "Google Maps"],
-      "description": "Herramienta móvil de apoyo al rodaje: comercios cercanos, distancias, criterios de traslado y accesos directos a Google Maps.",
+      "description": "Herramienta móvil de apoyo al rodaje con comercios cercanos, distancias, criterios de traslado y accesos directos a Google Maps.",
       "page": "https://jrrguille-bit.github.io/jona-logistica-mapa/",
       "repository": "https://github.com/JRRGUILLE-bit/jona-logistica-mapa"
     },
@@ -134,14 +134,15 @@
       "id": "nadie-publico",
       "title": "Nadie — Página pública",
       "technology": ["HTML", "CSS", "JavaScript"],
-      "description": "Portada web de tono cinematográfico con video de fondo, grano y tratamiento visual.",
+      "description": "Sitio público de tono cinematográfico desarrollado con video, grano y tratamiento visual.",
       "page": "https://jrrguille-bit.github.io/Nadie-Publico/",
       "repository": "https://github.com/JRRGUILLE-bit/Nadie-Publico"
     }
   ],
   "ai": {
-    "statement": "Uso inteligencia artificial generativa como herramienta de prototipado, automatización, documentación y desarrollo, manteniendo criterio humano sobre objetivos, contenido y decisiones de producción."
+    "statement": "Utilizo inteligencia artificial generativa para prototipado, automatización, documentación y desarrollo, manteniendo criterio humano sobre los objetivos, el contenido y las decisiones de producción."
   },
+  "experienceIntro": "Una trayectoria en tecnología, producto y atención especializada que hoy aplico a la producción audiovisual y los formatos digitales.",
   "experience": [
     {
       "company": "RyC Consultores",
@@ -149,7 +150,7 @@
       "period": "2026—actual",
       "role": "Desarrollo de software y servicio técnico",
       "workMode": "Remoto",
-      "description": "Desarrollo, soporte técnico y resolución de necesidades tecnológicas para clientes y operaciones de la consultora."
+      "description": "Desarrollo de soluciones, soporte técnico y resolución de necesidades tecnológicas para clientes y operaciones de la consultora."
     },
     {
       "company": "Alorica",
@@ -173,7 +174,7 @@
       "company": "Tradehelm",
       "period": "2016—2018",
       "role": "Product Owner",
-      "description": "Gestión y priorización de backlog; coordinación de requerimientos de producto."
+      "description": "Gestión y priorización del backlog, con coordinación de requerimientos de producto."
     },
     {
       "company": "Sabre Uruguay",
@@ -200,7 +201,7 @@
     "canonical": "https://jrrguille-bit.github.io/guillermo-barbeito/",
     "robots": "index, follow, max-image-preview:large",
     "sitemap": "https://jrrguille-bit.github.io/guillermo-barbeito/sitemap.xml",
-    "structuredDataType": "ProfilePage + Person + CreativeWork",
+    "structuredDataType": "Person",
     "searchConsoleVerification": "N3N9ww8UlENGI34N0jalMqL5cs5qbOLsxG3eL_jdU_I"
   }
 }
