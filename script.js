@@ -96,17 +96,35 @@
       ['accent', 'NO SIGNAL LOST'],
       ['dim', 'operator: GB / channel: A'],
       ['code', 'while (idea) { build(); test(); }'],
-      ['status', '> COMPILING CREATIVE SYSTEMS']
+      ['status', '> COMPILING CREATIVE SYSTEMS'],
+      ['code', 'for (const frame of footage) stabilize(frame);'],
+      ['status', '> ESTABLISHING SECURE UPLINK'],
+      ['accent', 'FIREWALL BYPASSED'],
+      ['code', 'matrix.route.override("studio-b");'],
+      ['dim', 'zero-day payload armed'],
+      ['status', '> PARSING TIMELINE DATA'],
+      ['code', 'audioBus.normalize({ target: -14 });'],
+      ['accent', 'ENCRYPTION CRACKED'],
+      ['code', 'await render("picture_lock");'],
+      ['dim', 'satellite relay synchronized'],
+      ['status', '> INJECTING PATCH'],
+      ['code', 'ssh operator@production-node'],
+      ['accent', 'TRACE TERMINATED'],
+      ['code', 'cache.flush(); signal.restore();']
     ];
 
     const positions = [
-      { left: '3%', top: '13%', width: '29rem', opacity: '.46', delay: 250 },
-      { left: '67%', top: '11%', width: '27rem', opacity: '.38', delay: 1550 },
-      { left: '8%', top: '39%', width: '25rem', opacity: '.32', delay: 2850 },
-      { left: '55%', top: '34%', width: '31rem', opacity: '.42', delay: 900 },
-      { left: '73%', top: '61%', width: '24rem', opacity: '.48', delay: 3650 },
-      { left: '16%', top: '73%', width: '30rem', opacity: '.36', delay: 2100 },
-      { left: '44%', top: '84%', width: '28rem', opacity: '.3', delay: 4450 }
+      { left: '2%', top: '10%', width: '29rem', opacity: '.46', delay: 60 },
+      { left: '35%', top: '8%', width: '27rem', opacity: '.34', delay: 190 },
+      { left: '70%', top: '14%', width: '27rem', opacity: '.4', delay: 340 },
+      { left: '7%', top: '29%', width: '25rem', opacity: '.32', delay: 470 },
+      { left: '47%', top: '31%', width: '31rem', opacity: '.43', delay: 610 },
+      { left: '78%', top: '40%', width: '24rem', opacity: '.46', delay: 760 },
+      { left: '20%', top: '52%', width: '30rem', opacity: '.36', delay: 900 },
+      { left: '58%', top: '58%', width: '28rem', opacity: '.4', delay: 1030 },
+      { left: '3%', top: '70%', width: '28rem', opacity: '.37', delay: 1160 },
+      { left: '37%', top: '79%', width: '30rem', opacity: '.33', delay: 1290 },
+      { left: '73%', top: '84%', width: '26rem', opacity: '.45', delay: 1420 }
     ];
 
     const background = document.createElement('div');
@@ -130,7 +148,7 @@
         characterIndex += 1;
 
         if (characterIndex < phrase.length) {
-          window.setTimeout(typeNextCharacter, randomBetween(28, 58));
+          window.setTimeout(typeNextCharacter, randomBetween(16, 34));
           return;
         }
 
@@ -138,16 +156,16 @@
           fragment.classList.remove('is-visible');
 
           window.setTimeout(() => {
-            const nextPhraseIndex = phraseIndex + 3 + slotIndex;
+            const nextPhraseIndex = phraseIndex + 5 + slotIndex;
             window.setTimeout(
               () => startTypingCycle(fragment, textNode, slotIndex, nextPhraseIndex),
-              randomBetween(900, 2600)
+              randomBetween(260, 850)
             );
-          }, 480);
-        }, randomBetween(2200, 4300));
+          }, 280);
+        }, randomBetween(1350, 2700));
       };
 
-      window.setTimeout(typeNextCharacter, randomBetween(120, 420));
+      window.setTimeout(typeNextCharacter, randomBetween(40, 160));
     };
 
     positions.forEach((position, slotIndex) => {
