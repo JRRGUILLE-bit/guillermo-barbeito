@@ -16,21 +16,6 @@
     });
   }
 
-  const portrait = document.querySelector('.portrait-wrap img');
-  if (portrait) {
-    fetch('assets/photo.b64')
-      .then((response) => {
-        if (!response.ok) throw new Error('Portrait asset unavailable');
-        return response.text();
-      })
-      .then((encoded) => {
-        portrait.src = `data:image/jpeg;base64,${encoded.trim()}`;
-      })
-      .catch(() => {
-        portrait.src = 'https://avatars.githubusercontent.com/u/239671688?v=4';
-      });
-  }
-
   document.querySelectorAll('a[href$="Guillermo-Barbeito-CV.pdf"]').forEach((link) => {
     link.addEventListener('click', async (event) => {
       event.preventDefault();
