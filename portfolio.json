@@ -113,7 +113,8 @@
       "context": "48 Hour Film Project Uruguay",
       "team": "EA",
       "role": "Productor",
-      "description": "Cortometraje realizado por el equipo EA: una producción completa, desde la consigna hasta la entrega, en 48 horas."
+      "description": "Cortometraje realizado por el equipo EA para el 48 Hour Film Project Uruguay: una producción completa, desde la consigna hasta la entrega, en 48 horas.",
+      "watchUrl": "https://drive.google.com/file/d/17Etin_c2HY3x_KFnIKXF1B8fqa9pQQms/view"
     },
     {
       "id": "una-vez-casi-hice-un-gol",
@@ -121,7 +122,7 @@
       "year": 2025,
       "context": "Festival de Cine Nuevo DETOUR",
       "role": "Productor",
-      "description": "Cortometraje de comedia concebido y realizado en plano secuencia para el desafío del festival."
+      "description": "Cortometraje de comedia concebido y realizado en plano secuencia para el desafío del Festival de Cine Nuevo DETOUR."
     },
     {
       "id": "eco",
