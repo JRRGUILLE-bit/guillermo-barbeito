@@ -2,6 +2,7 @@
   const navToggle = document.querySelector('.nav-toggle');
   const nav = document.querySelector('.site-nav');
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const linkedinUrl = 'https://www.linkedin.com/in/guillermo-barbeito-040632340/';
 
   if (navToggle && nav) {
     navToggle.addEventListener('click', () => {
@@ -23,6 +24,40 @@
         navToggle.focus();
       }
     });
+  }
+
+  const contactActions = document.querySelector('.contact-actions');
+  if (contactActions && !contactActions.querySelector('[data-linkedin]')) {
+    const linkedinLink = document.createElement('a');
+    linkedinLink.className = 'contact-line';
+    linkedinLink.href = linkedinUrl;
+    linkedinLink.target = '_blank';
+    linkedinLink.rel = 'noopener noreferrer';
+    linkedinLink.dataset.linkedin = 'true';
+    linkedinLink.setAttribute('aria-label', 'Ver el perfil de Guillermo Barbeito en LinkedIn');
+    linkedinLink.innerHTML = '<span>LINKEDIN</span><strong>Guillermo Barbeito</strong><i>↗</i>';
+
+    const githubLink = Array.from(contactActions.querySelectorAll('.contact-line'))
+      .find((link) => link.href.includes('github.com'));
+
+    if (githubLink) {
+      githubLink.insertAdjacentElement('afterend', linkedinLink);
+    } else {
+      contactActions.appendChild(linkedinLink);
+    }
+  }
+
+  const personSchema = document.querySelector('script[type="application/ld+json"]');
+  if (personSchema) {
+    try {
+      const structuredData = JSON.parse(personSchema.textContent);
+      const sameAs = Array.isArray(structuredData.sameAs) ? structuredData.sameAs : [];
+      if (!sameAs.includes(linkedinUrl)) sameAs.push(linkedinUrl);
+      structuredData.sameAs = sameAs;
+      personSchema.textContent = JSON.stringify(structuredData, null, 2);
+    } catch (error) {
+      console.warn('No se pudo actualizar el perfil de LinkedIn en los datos estructurados.', error);
+    }
   }
 
   const projectArt = document.querySelector('.project-feature-art');
