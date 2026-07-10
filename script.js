@@ -16,17 +16,15 @@
     });
   }
 
-  document.querySelectorAll('.project-links').forEach((group) => {
-    group.style.display = 'flex';
-    group.style.flexDirection = 'column';
-    group.style.alignItems = 'flex-start';
-    group.style.gap = '.15rem';
-  });
-
-  document.querySelectorAll('.text-link-secondary').forEach((link) => {
-    link.style.opacity = '.7';
-    link.style.fontSize = '.74rem';
-  });
+  if (navToggle && nav) {
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && nav.classList.contains('is-open')) {
+        nav.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.focus();
+      }
+    });
+  }
 
   const revealItems = document.querySelectorAll('.reveal');
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
