@@ -69,7 +69,6 @@
       cameraHud.innerHTML = `
         <div class="camera-safe-frame"></div>
         <div class="camera-grid"></div>
-        <div class="camera-crosshair"><span></span></div>
         <div class="camera-corners">
           <i class="camera-corner camera-corner-tl"></i>
           <i class="camera-corner camera-corner-tr"></i>
