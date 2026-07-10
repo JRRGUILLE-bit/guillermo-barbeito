@@ -28,19 +28,6 @@
     link.style.fontSize = '.74rem';
   });
 
-  document.querySelectorAll('a[href$="Guillermo-Barbeito-CV.pdf"]').forEach((link) => {
-    link.addEventListener('click', async (event) => {
-      event.preventDefault();
-      try {
-        const response = await fetch(link.getAttribute('href'), { method: 'HEAD' });
-        if (!response.ok) throw new Error('PDF not available');
-        window.location.href = link.getAttribute('href');
-      } catch (_) {
-        window.location.href = 'cv.html';
-      }
-    });
-  });
-
   const revealItems = document.querySelectorAll('.reveal');
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
