@@ -3,6 +3,13 @@ body {
   isolation: isolate;
 }
 
+.hero h1,
+.hero h1 span {
+  letter-spacing: normal !important;
+  font-kerning: auto;
+  text-rendering: auto;
+}
+
 .frame-label-top {
   display: none !important;
 }
@@ -32,9 +39,9 @@ body > .skip-link {
   overflow: hidden;
   pointer-events: none;
   user-select: none;
-  opacity: .78;
-  mask-image: linear-gradient(to bottom, transparent 0, #000 7%, #000 93%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 7%, #000 93%, transparent 100%);
+  opacity: .82;
+  mask-image: linear-gradient(to bottom, transparent 0, #000 6%, #000 94%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 6%, #000 94%, transparent 100%);
 }
 
 .code-background::before,
@@ -72,14 +79,14 @@ body > .skip-link {
   max-width: calc(100vw - 2rem);
   overflow: hidden;
   opacity: 0;
-  transform: translateY(4px);
+  transform: translateY(3px);
   color: rgba(214, 209, 200, .33);
   font: 700 clamp(.6rem, .66vw, .76rem)/1.55 var(--mono, "Lekton", monospace);
   letter-spacing: .045em;
   white-space: nowrap;
   text-overflow: clip;
   filter: drop-shadow(0 0 12px rgba(233, 75, 67, .03));
-  transition: opacity .42s ease, transform .42s ease;
+  transition: opacity .28s ease, transform .28s ease;
 }
 
 .code-fragment.is-visible {
@@ -114,7 +121,7 @@ body > .skip-link {
   vertical-align: -.14em;
   background: currentColor;
   opacity: .78;
-  animation: codeCursorBlink .82s steps(1, end) infinite;
+  animation: codeCursorBlink .68s steps(1, end) infinite;
 }
 
 @keyframes codeCursorBlink {
@@ -124,7 +131,7 @@ body > .skip-link {
 
 @media (max-width: 1050px) {
   .code-background {
-    opacity: .68;
+    opacity: .72;
   }
 
   .code-fragment {
@@ -132,14 +139,15 @@ body > .skip-link {
   }
 
   .code-fragment:nth-child(2),
-  .code-fragment:nth-child(6) {
+  .code-fragment:nth-child(7),
+  .code-fragment:nth-child(10) {
     display: none;
   }
 }
 
 @media (max-width: 620px) {
   .code-background {
-    opacity: .52;
+    opacity: .56;
   }
 
   .code-fragment {
@@ -150,23 +158,31 @@ body > .skip-link {
   .code-fragment:nth-child(2),
   .code-fragment:nth-child(4),
   .code-fragment:nth-child(6),
-  .code-fragment:nth-child(7) {
+  .code-fragment:nth-child(7),
+  .code-fragment:nth-child(9),
+  .code-fragment:nth-child(10),
+  .code-fragment:nth-child(11) {
     display: none;
   }
 
   .code-fragment:nth-child(1) {
     left: 4% !important;
-    top: 14% !important;
+    top: 13% !important;
   }
 
   .code-fragment:nth-child(3) {
     left: 8% !important;
-    top: 48% !important;
+    top: 38% !important;
   }
 
   .code-fragment:nth-child(5) {
     left: 18% !important;
-    top: 77% !important;
+    top: 64% !important;
+  }
+
+  .code-fragment:nth-child(8) {
+    left: 6% !important;
+    top: 83% !important;
   }
 }
 
