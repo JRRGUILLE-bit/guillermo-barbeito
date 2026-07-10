@@ -1,11 +1,11 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "schemaVersion": "1.1",
+  "schemaVersion": "1.2",
   "lastUpdated": "2026-07-10",
   "site": {
     "name": "Guillermo Barbeito",
-    "title": "Guillermo Barbeito — Producción audiovisual y tecnología aplicada",
-    "description": "Portfolio profesional de Guillermo Barbeito, productor audiovisual con base técnica orientado a streaming, formatos digitales y sistemas de producción.",
+    "title": "Guillermo Barbeito — Creativo, escritor y productor audiovisual",
+    "description": "Portfolio profesional de Guillermo Barbeito: creativo, escritor y productor audiovisual con base técnica, orientado a ficción, streaming, formatos digitales y sistemas de producción.",
     "url": "https://jrrguille-bit.github.io/guillermo-barbeito/",
     "language": "es-UY",
     "location": "Montevideo, Uruguay",
@@ -13,15 +13,24 @@
       "visualStyle": "Editorial audiovisual + interfaz técnica",
       "primaryFont": "Lekton",
       "bodyFont": "Manrope",
-      "palette": ["#0b0c0e", "#f1ede4", "#e94b43"]
+      "palette": [
+        "#0b0c0e",
+        "#f1ede4",
+        "#e94b43"
+      ]
     }
   },
   "person": {
     "name": "Guillermo Barbeito",
-    "headline": "Productor audiovisual con base técnica, orientado a streaming, formatos digitales y sistemas de producción.",
-    "summary": "Estudiante avanzado de Comunicación Audiovisual e ingeniero en informática. Combino producción, coordinación y desarrollo de herramientas para convertir ideas creativas en procesos concretos.",
+    "roles": [
+      "Creativo",
+      "Escritor",
+      "Productor audiovisual"
+    ],
+    "headline": "Creativo, escritor y productor audiovisual con base técnica.",
+    "summary": "Desarrollo ideas, historias y proyectos audiovisuales para ficción, streaming y formatos digitales. Mi formación en informática aporta una base técnica para convertirlos en procesos y sistemas concretos.",
     "profile": [
-      "Curso el cuarto año de Comunicación Audiovisual en la Universidad Católica del Uruguay, con egreso previsto para 2027 una vez finalizada la tesis. Desarrollo proyectos de creación, guion y producción audiovisual.",
+      "Curso el cuarto año de Comunicación Audiovisual en la Universidad Católica del Uruguay, con egreso previsto para 2027 una vez finalizada la tesis. Desarrollo proyectos de creación, escritura, guion y producción audiovisual.",
       "Mi formación como ingeniero en informática y mi experiencia en producto, soporte, automatización e inteligencia artificial me permiten traducir necesidades creativas en procesos claros y herramientas concretas."
     ],
     "contact": {
@@ -56,8 +65,20 @@
     }
   ],
   "focus": {
-    "areas": ["Producción audiovisual", "Streaming", "Formatos digitales", "Sistemas de producción"],
-    "technicalBase": ["Software", "Inteligencia artificial aplicada", "Gestión de producto"],
+    "areas": [
+      "Desarrollo creativo",
+      "Escritura",
+      "Guion audiovisual",
+      "Producción audiovisual",
+      "Streaming",
+      "Formatos digitales",
+      "Sistemas de producción"
+    ],
+    "technicalBase": [
+      "Software",
+      "Inteligencia artificial aplicada",
+      "Gestión de producto"
+    ],
     "audienceKnowledge": "Más de diez años de seguimiento del ecosistema angloparlante de YouTube y streaming: formatos en vivo y bajo demanda, creadores, comunidades, lenguaje de plataforma e interacción con audiencias."
   },
   "audiovisualProjects": [
@@ -66,9 +87,16 @@
       "title": "Nadie te dijo que iba a ser así",
       "type": "Serie de ficción",
       "status": "En desarrollo",
-      "roles": ["Cocreador", "Coguionista"],
+      "roles": [
+        "Cocreador",
+        "Coguionista"
+      ],
       "description": "Serie de seis episodios que combina comedia negra y thriller político, cocreada y coescrita con Maite Piñeyrúa Segura. El proyecto está en desarrollo con coproducción ejecutiva de SKA Films.",
-      "recognitions": ["Fondo de Incentivo Cultural", "Málaga Talent 2025", "DETOUR Series Lab"],
+      "recognitions": [
+        "Fondo de Incentivo Cultural",
+        "Málaga Talent 2025",
+        "DETOUR Series Lab"
+      ],
       "page": "https://jrrguille-bit.github.io/Nadie-Publico/",
       "repository": "https://github.com/JRRGUILLE-bit/Nadie-Publico",
       "video": {
@@ -110,14 +138,22 @@
       "type": "MVP de escritorio",
       "repositoryVisibility": "Privado",
       "platform": "Linux",
-      "technology": ["Python", "SHA-256"],
+      "technology": [
+        "Python",
+        "SHA-256"
+      ],
       "description": "Herramienta local de ingesta audiovisual. Copia el material desde una fuente a dos destinos independientes, verifica el Triángulo Dorado mediante hashes SHA-256 y genera reportes legibles para el equipo.",
       "safety": "No formatea, borra ni modifica el material original."
     },
     {
       "id": "jona-ensayos",
       "title": "Jona — Ensayos",
-      "technology": ["HTML", "JavaScript", "Google Apps Script", "Google Sheets"],
+      "technology": [
+        "HTML",
+        "JavaScript",
+        "Google Apps Script",
+        "Google Sheets"
+      ],
       "description": "Formulario web adaptable para relevar la disponibilidad de actores y organizar fechas.",
       "page": "https://jrrguille-bit.github.io/jona-ensayos/",
       "repository": "https://github.com/JRRGUILLE-bit/jona-ensayos"
@@ -125,7 +161,11 @@
     {
       "id": "jona-logistica",
       "title": "Jona — Logística",
-      "technology": ["Responsive web", "Data", "Google Maps"],
+      "technology": [
+        "Responsive web",
+        "Data",
+        "Google Maps"
+      ],
       "description": "Herramienta móvil de apoyo al rodaje con comercios cercanos, distancias, criterios de traslado y accesos directos a Google Maps.",
       "page": "https://jrrguille-bit.github.io/jona-logistica-mapa/",
       "repository": "https://github.com/JRRGUILLE-bit/jona-logistica-mapa"
@@ -133,7 +173,11 @@
     {
       "id": "nadie-publico",
       "title": "Nadie — Página pública",
-      "technology": ["HTML", "CSS", "JavaScript"],
+      "technology": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
       "description": "Sitio público de tono cinematográfico desarrollado con video, grano y tratamiento visual.",
       "page": "https://jrrguille-bit.github.io/Nadie-Publico/",
       "repository": "https://github.com/JRRGUILLE-bit/Nadie-Publico"
@@ -142,7 +186,7 @@
   "ai": {
     "statement": "Utilizo inteligencia artificial generativa para prototipado, automatización, documentación y desarrollo, manteniendo criterio humano sobre los objetivos, el contenido y las decisiones de producción."
   },
-  "experienceIntro": "Una trayectoria en tecnología, producto y atención especializada que hoy aplico a la producción audiovisual y los formatos digitales.",
+  "experienceIntro": "Una trayectoria en tecnología, producto y atención especializada que hoy aplico a la creación, la escritura, la producción audiovisual y los formatos digitales.",
   "experience": [
     {
       "company": "RyC Consultores",
@@ -184,9 +228,19 @@
     }
   ],
   "languages": [
-    {"language": "Español", "level": "Nativo"},
-    {"language": "Inglés", "level": "Avanzado", "certification": "First Certificate aprobado"},
-    {"language": "Portugués", "level": "Básico"}
+    {
+      "language": "Español",
+      "level": "Nativo"
+    },
+    {
+      "language": "Inglés",
+      "level": "Avanzado",
+      "certification": "First Certificate aprobado"
+    },
+    {
+      "language": "Portugués",
+      "level": "Básico"
+    }
   ],
   "training": [
     "Foundations of AI",
