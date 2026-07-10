@@ -1,11 +1,11 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "schemaVersion": "1.2",
+  "schemaVersion": "1.3",
   "lastUpdated": "2026-07-10",
   "site": {
     "name": "Guillermo Barbeito",
     "title": "Guillermo Barbeito — Creativo, escritor y productor audiovisual",
-    "description": "Portfolio profesional de Guillermo Barbeito: creativo, escritor y productor audiovisual con base técnica, orientado a ficción, streaming, formatos digitales y sistemas de producción.",
+    "description": "Portfolio profesional de Guillermo Barbeito: creativo, escritor y productor audiovisual. Ficción, streaming, formatos digitales y herramientas para producción.",
     "url": "https://jrrguille-bit.github.io/guillermo-barbeito/",
     "language": "es-UY",
     "location": "Montevideo, Uruguay",
@@ -27,11 +27,11 @@
       "Escritor",
       "Productor audiovisual"
     ],
-    "headline": "Creativo, escritor y productor audiovisual con base técnica.",
-    "summary": "Desarrollo ideas, historias y proyectos audiovisuales para ficción, streaming y formatos digitales. Mi formación en informática aporta una base técnica para convertirlos en procesos y sistemas concretos.",
+    "headline": "Creativo, escritor y productor audiovisual.",
+    "summary": "Escribo historias y desarrollo proyectos para ficción, streaming y formatos digitales. También diseño las herramientas y los procesos que permiten llevarlos del papel a la pantalla.",
     "profile": [
-      "Curso el cuarto año de Comunicación Audiovisual en la Universidad Católica del Uruguay, con egreso previsto para 2027 una vez finalizada la tesis. Desarrollo proyectos de creación, escritura, guion y producción audiovisual.",
-      "Mi formación como ingeniero en informática y mi experiencia en producto, soporte, automatización e inteligencia artificial me permiten traducir necesidades creativas en procesos claros y herramientas concretas."
+      "Curso el cuarto año de Comunicación Audiovisual en la Universidad Católica del Uruguay, con egreso previsto para 2027 una vez finalizada la tesis. Desarrollo proyectos de ficción desde la idea y la escritura hasta el guion y la producción.",
+      "Soy ingeniero en informática. Esa formación, sumada a mi experiencia en producto, soporte, automatización e inteligencia artificial, me permite construir procesos y herramientas para que la técnica acompañe a la creación, en lugar de frenarla."
     ],
     "contact": {
       "email": "gbarbeitor@yahoo.com",
@@ -79,7 +79,7 @@
       "Inteligencia artificial aplicada",
       "Gestión de producto"
     ],
-    "audienceKnowledge": "Más de diez años de seguimiento del ecosistema angloparlante de YouTube y streaming: formatos en vivo y bajo demanda, creadores, comunidades, lenguaje de plataforma e interacción con audiencias."
+    "audienceKnowledge": "Hace más de diez años sigo de cerca cómo YouTube y el streaming angloparlante construyen formatos, comunidades y vínculos con sus audiencias. Ese conocimiento informa mi trabajo creativo y de producción."
   },
   "audiovisualProjects": [
     {
@@ -91,7 +91,7 @@
         "Cocreador",
         "Coguionista"
       ],
-      "description": "Serie de seis episodios que combina comedia negra y thriller político, cocreada y coescrita con Maite Piñeyrúa Segura. El proyecto está en desarrollo con coproducción ejecutiva de SKA Films.",
+      "description": "Serie de seis episodios donde la comedia negra se cruza con el thriller político. Cocreada y coescrita con Maite Piñeyrúa Segura, se encuentra en desarrollo con coproducción ejecutiva de SKA Films.",
       "recognitions": [
         "Fondo de Incentivo Cultural",
         "Málaga Talent 2025",
@@ -113,7 +113,7 @@
       "context": "48 Hour Film Project Uruguay",
       "team": "EA",
       "role": "Productor",
-      "description": "Cortometraje realizado por el equipo EA. Producción integral y entrega dentro de un plazo de 48 horas."
+      "description": "Cortometraje realizado por el equipo EA: una producción completa, desde la consigna hasta la entrega, en 48 horas."
     },
     {
       "id": "una-vez-casi-hice-un-gol",
@@ -121,14 +121,14 @@
       "year": 2025,
       "context": "Festival de Cine Nuevo DETOUR",
       "role": "Productor",
-      "description": "Cortometraje realizado para el desafío de comedia en plano secuencia."
+      "description": "Cortometraje de comedia concebido y realizado en plano secuencia para el desafío del festival."
     },
     {
       "id": "eco",
       "title": "ECO",
       "context": "Proyecto académico",
       "role": "Montaje",
-      "description": "Cortometraje académico. Montaje realizado junto a Manuela Calvar."
+      "description": "Cortometraje académico. Montaje compartido con Manuela Calvar."
     }
   ],
   "softwareProjects": [
@@ -142,8 +142,8 @@
         "Python",
         "SHA-256"
       ],
-      "description": "Herramienta local de ingesta audiovisual. Copia el material desde una fuente a dos destinos independientes, verifica el Triángulo Dorado mediante hashes SHA-256 y genera reportes legibles para el equipo.",
-      "safety": "No formatea, borra ni modifica el material original."
+      "description": "Herramienta local de ingesta audiovisual que copia el material desde una fuente a dos destinos independientes, verifica el Triángulo Dorado mediante hashes SHA-256 y genera reportes claros para el equipo.",
+      "safety": "Trabaja sin formatear, borrar ni alterar el material original."
     },
     {
       "id": "jona-ensayos",
@@ -154,7 +154,7 @@
         "Google Apps Script",
         "Google Sheets"
       ],
-      "description": "Formulario web adaptable para relevar la disponibilidad de actores y organizar fechas.",
+      "description": "Formulario web adaptable para relevar la disponibilidad de actores y ordenar fechas de ensayo.",
       "page": "https://jrrguille-bit.github.io/jona-ensayos/",
       "repository": "https://github.com/JRRGUILLE-bit/jona-ensayos"
     },
@@ -178,15 +178,15 @@
         "CSS",
         "JavaScript"
       ],
-      "description": "Sitio público de tono cinematográfico desarrollado con video, grano y tratamiento visual.",
+      "description": "Sitio público de tono cinematográfico que combina video, grano y tratamiento visual.",
       "page": "https://jrrguille-bit.github.io/Nadie-Publico/",
       "repository": "https://github.com/JRRGUILLE-bit/Nadie-Publico"
     }
   ],
   "ai": {
-    "statement": "Utilizo inteligencia artificial generativa para prototipado, automatización, documentación y desarrollo, manteniendo criterio humano sobre los objetivos, el contenido y las decisiones de producción."
+    "statement": "Uso inteligencia artificial generativa para prototipar, automatizar, documentar y desarrollar. Los objetivos, el contenido y las decisiones de producción siguen bajo criterio humano."
   },
-  "experienceIntro": "Una trayectoria en tecnología, producto y atención especializada que hoy aplico a la creación, la escritura, la producción audiovisual y los formatos digitales.",
+  "experienceIntro": "Mi recorrido en tecnología, producto y atención especializada hoy funciona como una base concreta para la creación y la producción audiovisual.",
   "experience": [
     {
       "company": "RyC Consultores",
