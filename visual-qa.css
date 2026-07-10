@@ -8,12 +8,14 @@ body {
 }
 
 .hero h1 {
-  letter-spacing: -0.045em;
+  letter-spacing: -0.018em;
+  font-kerning: normal;
+  text-rendering: geometricPrecision;
 }
 
 .hero h1 span {
   display: inline-block;
-  letter-spacing: -0.025em;
+  letter-spacing: 0.012em;
 }
 
 body::before {
@@ -61,6 +63,172 @@ body::before {
   border: 1px solid rgba(241, 237, 228, .22);
 }
 
+.hero-visual {
+  isolation: isolate;
+}
+
+.hero-visual .portrait-wrap {
+  z-index: 0;
+}
+
+.hero-visual .frame-label,
+.hero-visual .timecode {
+  z-index: 4;
+}
+
+.camera-hud {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  color: rgba(241, 237, 228, .9);
+  filter: drop-shadow(0 1px 4px rgba(0, 0, 0, .75));
+}
+
+.camera-safe-frame {
+  position: absolute;
+  inset: 7.5% 6.5%;
+  border: 1px solid rgba(241, 237, 228, .16);
+}
+
+.camera-grid {
+  position: absolute;
+  inset: 7.5% 6.5%;
+  opacity: .48;
+  background-image:
+    linear-gradient(to right,
+      transparent 0 33.23%,
+      rgba(241, 237, 228, .25) 33.23% 33.43%,
+      transparent 33.43% 66.56%,
+      rgba(241, 237, 228, .25) 66.56% 66.76%,
+      transparent 66.76% 100%),
+    linear-gradient(to bottom,
+      transparent 0 33.23%,
+      rgba(241, 237, 228, .25) 33.23% 33.43%,
+      transparent 33.43% 66.56%,
+      rgba(241, 237, 228, .25) 66.56% 66.76%,
+      transparent 66.76% 100%);
+}
+
+.camera-crosshair {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(64px, 7vw, 92px);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(241, 237, 228, .52);
+  border-radius: 50%;
+}
+
+.camera-crosshair::before,
+.camera-crosshair::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: rgba(241, 237, 228, .62);
+  transform: translate(-50%, -50%);
+}
+
+.camera-crosshair::before {
+  width: 138%;
+  height: 1px;
+}
+
+.camera-crosshair::after {
+  width: 1px;
+  height: 138%;
+}
+
+.camera-crosshair span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(241, 237, 228, .9);
+  background: rgba(11, 12, 14, .42);
+}
+
+.camera-corner {
+  position: absolute;
+  width: clamp(30px, 3.4vw, 48px);
+  height: clamp(30px, 3.4vw, 48px);
+  opacity: .9;
+}
+
+.camera-corner-tl {
+  top: 3.4%;
+  left: 4%;
+  border-top: 2px solid currentColor;
+  border-left: 2px solid currentColor;
+}
+
+.camera-corner-tr {
+  top: 3.4%;
+  right: 4%;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+}
+
+.camera-corner-bl {
+  bottom: 3.4%;
+  left: 4%;
+  border-bottom: 2px solid currentColor;
+  border-left: 2px solid currentColor;
+}
+
+.camera-corner-br {
+  right: 4%;
+  bottom: 3.4%;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+}
+
+.hero-visual .timecode {
+  bottom: 3.15rem;
+  left: 1.15rem;
+  padding: .48rem .62rem .34rem;
+  border: 1px solid rgba(241, 237, 228, .26);
+  background: rgba(8, 9, 11, .68);
+  backdrop-filter: blur(5px);
+  font-size: clamp(1.9rem, 4.3vw, 3.7rem);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .045em;
+  line-height: .9;
+  white-space: nowrap;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, .95);
+}
+
+.hero-visual .frame-label-bottom {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+
+.rec-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  color: var(--ink);
+}
+
+.rec-indicator i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 12px rgba(233, 75, 67, .9);
+  animation: camera-rec 1.05s steps(1, end) infinite;
+}
+
+@keyframes camera-rec {
+  0%, 52% { opacity: 1; }
+  53%, 100% { opacity: .25; }
+}
+
 @media (max-width: 820px) {
   .section-pad {
     padding-block: clamp(4.5rem, 14vw, 7rem);
@@ -88,6 +256,10 @@ body::before {
   .tech-tags {
     margin-top: 2rem;
     padding-top: 0;
+  }
+
+  .hero-visual .timecode {
+    font-size: clamp(1.65rem, 7.4vw, 2.65rem);
   }
 }
 
@@ -147,5 +319,33 @@ body::before {
   .contact-line strong {
     line-height: 1.4;
     overflow-wrap: anywhere;
+  }
+
+  .camera-safe-frame,
+  .camera-grid {
+    inset: 8% 7%;
+  }
+
+  .camera-crosshair {
+    width: 62px;
+  }
+
+  .hero-visual .timecode {
+    bottom: 3.2rem;
+    left: .75rem;
+    padding: .4rem .48rem .28rem;
+    font-size: clamp(1.45rem, 7.2vw, 2.1rem);
+  }
+
+  .hero-visual .frame-label-bottom {
+    right: .75rem;
+    gap: .5rem;
+    font-size: .58rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rec-indicator i {
+    animation: none;
   }
 }
