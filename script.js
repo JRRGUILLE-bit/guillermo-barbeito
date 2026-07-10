@@ -68,7 +68,7 @@
     stylesheet.href = 'code-background.css';
     document.head.appendChild(stylesheet);
 
-    const lines = [
+    const phrases = [
       ['status', '> READING REPOSITORY'],
       ['code', 'const signal = await locate("MONTEVIDEO");'],
       ['dim', '// scanning production pipeline...'],
@@ -99,48 +99,85 @@
       ['status', '> COMPILING CREATIVE SYSTEMS']
     ];
 
+    const positions = [
+      { left: '3%', top: '13%', width: '29rem', opacity: '.46', delay: 250 },
+      { left: '67%', top: '11%', width: '27rem', opacity: '.38', delay: 1550 },
+      { left: '8%', top: '39%', width: '25rem', opacity: '.32', delay: 2850 },
+      { left: '55%', top: '34%', width: '31rem', opacity: '.42', delay: 900 },
+      { left: '73%', top: '61%', width: '24rem', opacity: '.48', delay: 3650 },
+      { left: '16%', top: '73%', width: '30rem', opacity: '.36', delay: 2100 },
+      { left: '44%', top: '84%', width: '28rem', opacity: '.3', delay: 4450 }
+    ];
+
     const background = document.createElement('div');
     background.className = 'code-background';
     background.setAttribute('aria-hidden', 'true');
 
-    const columnSettings = [
-      { left: '2%', speed: '41s', delay: '-7s', opacity: '.72' },
-      { left: '22%', speed: '54s', delay: '-31s', opacity: '.42' },
-      { left: '54%', speed: '47s', delay: '-19s', opacity: '.46' },
-      { left: '73%', speed: '58s', delay: '-42s', opacity: '.5' },
-      { left: '89%', speed: '44s', delay: '-13s', opacity: '.66' }
-    ];
+    const randomBetween = (minimum, maximum) => (
+      Math.floor(Math.random() * (maximum - minimum + 1)) + minimum
+    );
 
-    const makeCopy = (offset) => {
-      const copy = document.createElement('div');
-      copy.className = 'code-stream-copy';
+    const startTypingCycle = (fragment, textNode, slotIndex, phraseIndex) => {
+      const [kind, phrase] = phrases[phraseIndex % phrases.length];
+      fragment.className = `code-fragment code-fragment-${kind}`;
+      textNode.textContent = '';
 
-      lines.forEach((_, index) => {
-        const [kind, text] = lines[(index + offset) % lines.length];
-        const line = document.createElement('span');
-        line.className = `code-line code-line-${kind}`;
-        line.textContent = text;
-        copy.appendChild(line);
-      });
+      window.requestAnimationFrame(() => fragment.classList.add('is-visible'));
 
-      return copy;
+      let characterIndex = 0;
+      const typeNextCharacter = () => {
+        textNode.textContent = phrase.slice(0, characterIndex + 1);
+        characterIndex += 1;
+
+        if (characterIndex < phrase.length) {
+          window.setTimeout(typeNextCharacter, randomBetween(28, 58));
+          return;
+        }
+
+        window.setTimeout(() => {
+          fragment.classList.remove('is-visible');
+
+          window.setTimeout(() => {
+            const nextPhraseIndex = phraseIndex + 3 + slotIndex;
+            window.setTimeout(
+              () => startTypingCycle(fragment, textNode, slotIndex, nextPhraseIndex),
+              randomBetween(900, 2600)
+            );
+          }, 480);
+        }, randomBetween(2200, 4300));
+      };
+
+      window.setTimeout(typeNextCharacter, randomBetween(120, 420));
     };
 
-    columnSettings.forEach((settings, columnIndex) => {
-      const column = document.createElement('div');
-      column.className = 'code-column';
-      column.style.setProperty('--code-left', settings.left);
-      column.style.setProperty('--code-speed', settings.speed);
-      column.style.setProperty('--code-delay', settings.delay);
-      column.style.setProperty('--code-opacity', settings.opacity);
+    positions.forEach((position, slotIndex) => {
+      const fragment = document.createElement('div');
+      fragment.className = 'code-fragment';
+      fragment.style.setProperty('--fragment-left', position.left);
+      fragment.style.setProperty('--fragment-top', position.top);
+      fragment.style.setProperty('--fragment-width', position.width);
+      fragment.style.setProperty('--fragment-opacity', position.opacity);
 
-      const track = document.createElement('div');
-      track.className = 'code-stream-track';
-      const offset = (columnIndex * 5) % lines.length;
-      track.appendChild(makeCopy(offset));
-      track.appendChild(makeCopy(offset));
-      column.appendChild(track);
-      background.appendChild(column);
+      const textNode = document.createElement('span');
+      textNode.className = 'code-fragment-text';
+
+      const cursor = document.createElement('i');
+      cursor.className = 'code-cursor';
+
+      fragment.append(textNode, cursor);
+      background.appendChild(fragment);
+
+      const firstPhraseIndex = (slotIndex * 4) % phrases.length;
+      if (prefersReduced) {
+        const [kind, phrase] = phrases[firstPhraseIndex];
+        fragment.className = `code-fragment code-fragment-${kind} is-visible`;
+        textNode.textContent = phrase;
+      } else {
+        window.setTimeout(
+          () => startTypingCycle(fragment, textNode, slotIndex, firstPhraseIndex),
+          position.delay
+        );
+      }
     });
 
     document.body.prepend(background);
