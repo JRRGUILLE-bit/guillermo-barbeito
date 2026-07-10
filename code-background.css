@@ -3,6 +3,20 @@ body {
   isolation: isolate;
 }
 
+.frame-label-top {
+  display: none !important;
+}
+
+@media (min-width: 821px) {
+  .hero-visual {
+    width: 80%;
+    height: clamp(500px, 72svh, 760px);
+    min-height: 0;
+    align-self: center;
+    justify-self: end;
+  }
+}
+
 body > .site-header,
 body > main,
 body > .site-footer,
