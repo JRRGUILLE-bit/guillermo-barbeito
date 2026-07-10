@@ -315,6 +315,57 @@
     }
   }
 
+  const writingSection = document.querySelector('#escritura');
+  if (writingSection) {
+    const terranovaCover = writingSection.querySelector('.writing-card-cover-terranova');
+    const terranovaCard = terranovaCover?.closest('.writing-card');
+    if (terranovaCard) terranovaCard.remove();
+
+    const sectionIntro = writingSection.querySelector('.section-heading > p');
+    if (sectionIntro) {
+      sectionIntro.textContent = 'Novela inédita y escritura para pantalla. Manuscritos, desarrollo narrativo y proyectos de ficción.';
+    }
+
+    const machineCard = writingSection.querySelector('.writing-card-primary');
+    if (machineCard) {
+      const coverLabel = machineCard.querySelector('.writing-card-cover span');
+      const coverIndex = machineCard.querySelector('.writing-card-cover i');
+      const kicker = machineCard.querySelector('.project-kicker');
+      const description = machineCard.querySelector('.writing-card-copy > p');
+      const tags = machineCard.querySelector('.tech-tags');
+
+      if (coverLabel) coverLabel.textContent = 'INÉDITA';
+      if (coverIndex) coverIndex.textContent = '01';
+      if (kicker) kicker.textContent = 'NOVELA INÉDITA / MANUSCRITO COMPLETO';
+      if (description) {
+        description.textContent = 'Novela de ciencia ficción inédita. El manuscrito completo fue presentado a varios concursos literarios durante 2026; la obra no ha sido publicada.';
+      }
+      if (tags) {
+        tags.innerHTML = '<span>CIENCIA FICCIÓN</span><span>INÉDITA</span><span>MANUSCRITO COMPLETO</span><span>CONCURSOS 2026</span>';
+      }
+    }
+
+    const screenCard = writingSection.querySelector('.writing-card-cover-screen')?.closest('.writing-card');
+    const screenIndex = screenCard?.querySelector('.writing-card-cover i');
+    if (screenIndex) screenIndex.textContent = '02';
+
+    const writingStyles = document.createElement('style');
+    writingStyles.textContent = `
+      #escritura .writing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      @media (max-width: 1050px) and (min-width: 821px) {
+        #escritura .writing-card-primary { grid-column: auto; display: block; }
+        #escritura .writing-card-primary .writing-card-cover {
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+        }
+      }
+      @media (max-width: 820px) {
+        #escritura .writing-grid { grid-template-columns: 1fr; }
+      }
+    `;
+    document.head.appendChild(writingStyles);
+  }
+
   const revealItems = document.querySelectorAll('.reveal');
 
   if (prefersReduced || !('IntersectionObserver' in window)) {
