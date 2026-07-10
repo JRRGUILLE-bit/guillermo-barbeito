@@ -60,6 +60,94 @@
     }
   }
 
+  const installCodeBackground = () => {
+    if (document.querySelector('.code-background')) return;
+
+    const stylesheet = document.createElement('link');
+    stylesheet.rel = 'stylesheet';
+    stylesheet.href = 'code-background.css';
+    document.head.appendChild(stylesheet);
+
+    const lines = [
+      ['status', '> READING REPOSITORY'],
+      ['code', 'const signal = await locate("MONTEVIDEO");'],
+      ['dim', '// scanning production pipeline...'],
+      ['accent', 'ACCESS GRANTED'],
+      ['code', 'git diff --staged'],
+      ['status', '> GENERATING PATCH'],
+      ['code', 'renderQueue.push("final_cut_v7");'],
+      ['dim', 'uplink latency: 12ms'],
+      ['code', 'if (deadline < 48h) ship();'],
+      ['accent', 'HANDSHAKE ACCEPTED'],
+      ['code', 'camera.feed.locked = true;'],
+      ['status', '> RUNNING CHECKS'],
+      ['dim', 'decrypting scene_06.mov'],
+      ['code', 'checksum(source) === checksum(copy)'],
+      ['accent', 'SYSTEM ONLINE'],
+      ['code', 'trace.route("production-grid");'],
+      ['dim', '// enhancing frame...'],
+      ['status', '> VIEWING DIFF'],
+      ['code', 'sudo make it_cinematic'],
+      ['accent', 'AUTH TOKEN VERIFIED'],
+      ['code', 'mixdown.complete = true;'],
+      ['dim', 'tracking target... locked'],
+      ['status', '> READY FOR REVIEW'],
+      ['code', 'deploy({ branch: "main" });'],
+      ['accent', 'NO SIGNAL LOST'],
+      ['dim', 'operator: GB / channel: A'],
+      ['code', 'while (idea) { build(); test(); }'],
+      ['status', '> COMPILING CREATIVE SYSTEMS']
+    ];
+
+    const background = document.createElement('div');
+    background.className = 'code-background';
+    background.setAttribute('aria-hidden', 'true');
+
+    const columnSettings = [
+      { left: '2%', speed: '41s', delay: '-7s', opacity: '.72' },
+      { left: '22%', speed: '54s', delay: '-31s', opacity: '.42' },
+      { left: '54%', speed: '47s', delay: '-19s', opacity: '.46' },
+      { left: '73%', speed: '58s', delay: '-42s', opacity: '.5' },
+      { left: '89%', speed: '44s', delay: '-13s', opacity: '.66' }
+    ];
+
+    const makeCopy = (offset) => {
+      const copy = document.createElement('div');
+      copy.className = 'code-stream-copy';
+
+      lines.forEach((_, index) => {
+        const [kind, text] = lines[(index + offset) % lines.length];
+        const line = document.createElement('span');
+        line.className = `code-line code-line-${kind}`;
+        line.textContent = text;
+        copy.appendChild(line);
+      });
+
+      return copy;
+    };
+
+    columnSettings.forEach((settings, columnIndex) => {
+      const column = document.createElement('div');
+      column.className = 'code-column';
+      column.style.setProperty('--code-left', settings.left);
+      column.style.setProperty('--code-speed', settings.speed);
+      column.style.setProperty('--code-delay', settings.delay);
+      column.style.setProperty('--code-opacity', settings.opacity);
+
+      const track = document.createElement('div');
+      track.className = 'code-stream-track';
+      const offset = (columnIndex * 5) % lines.length;
+      track.appendChild(makeCopy(offset));
+      track.appendChild(makeCopy(offset));
+      column.appendChild(track);
+      background.appendChild(column);
+    });
+
+    document.body.prepend(background);
+  };
+
+  installCodeBackground();
+
   const heroVisual = document.querySelector('.hero-visual');
   if (heroVisual) {
     if (!heroVisual.querySelector('.camera-hud')) {
