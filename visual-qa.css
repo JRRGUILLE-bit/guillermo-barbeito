@@ -12,14 +12,14 @@ body {
 }
 
 .hero h1 {
-  letter-spacing: -0.018em;
+  letter-spacing: -0.025em;
   font-kerning: normal;
   text-rendering: geometricPrecision;
 }
 
 .hero h1 span {
   display: inline-block;
-  letter-spacing: 0.012em;
+  letter-spacing: -0.025em;
 }
 
 body::before {
