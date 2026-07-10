@@ -16,6 +16,18 @@
     });
   }
 
+  document.querySelectorAll('.project-links').forEach((group) => {
+    group.style.display = 'flex';
+    group.style.flexDirection = 'column';
+    group.style.alignItems = 'flex-start';
+    group.style.gap = '.15rem';
+  });
+
+  document.querySelectorAll('.text-link-secondary').forEach((link) => {
+    link.style.opacity = '.7';
+    link.style.fontSize = '.74rem';
+  });
+
   document.querySelectorAll('a[href$="Guillermo-Barbeito-CV.pdf"]').forEach((link) => {
     link.addEventListener('click', async (event) => {
       event.preventDefault();
