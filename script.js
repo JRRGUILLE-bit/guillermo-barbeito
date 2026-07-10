@@ -60,6 +60,71 @@
     }
   }
 
+  const heroVisual = document.querySelector('.hero-visual');
+  if (heroVisual) {
+    if (!heroVisual.querySelector('.camera-hud')) {
+      const cameraHud = document.createElement('div');
+      cameraHud.className = 'camera-hud';
+      cameraHud.setAttribute('aria-hidden', 'true');
+      cameraHud.innerHTML = `
+        <div class="camera-safe-frame"></div>
+        <div class="camera-grid"></div>
+        <div class="camera-crosshair"><span></span></div>
+        <div class="camera-corners">
+          <i class="camera-corner camera-corner-tl"></i>
+          <i class="camera-corner camera-corner-tr"></i>
+          <i class="camera-corner camera-corner-bl"></i>
+          <i class="camera-corner camera-corner-br"></i>
+        </div>
+      `;
+      heroVisual.appendChild(cameraHud);
+    }
+
+    const recLabel = heroVisual.querySelector('.frame-label-bottom');
+    if (recLabel) {
+      recLabel.innerHTML = '<span class="rec-indicator"><i></i> REC</span><span>ISO 800 / 24 FPS</span>';
+    }
+
+    const timecode = heroVisual.querySelector('.timecode');
+    if (timecode) {
+      timecode.setAttribute('aria-hidden', 'true');
+
+      if (!prefersReduced) {
+        const fps = 24;
+        const startFrames = (((4 * 60) + 27) * 60 * fps) + 18;
+        let startTimestamp;
+        let lastRenderedFrame = -1;
+
+        const formatTimecode = (totalFrames) => {
+          const frames = totalFrames % fps;
+          const totalSeconds = Math.floor(totalFrames / fps);
+          const seconds = totalSeconds % 60;
+          const totalMinutes = Math.floor(totalSeconds / 60);
+          const minutes = totalMinutes % 60;
+          const hours = Math.floor(totalMinutes / 60) % 24;
+          return [hours, minutes, seconds, frames]
+            .map((value) => String(value).padStart(2, '0'))
+            .join(':');
+        };
+
+        const updateTimecode = (timestamp) => {
+          if (startTimestamp === undefined) startTimestamp = timestamp;
+          const elapsedFrames = Math.floor(((timestamp - startTimestamp) / 1000) * fps);
+          const currentFrame = startFrames + elapsedFrames;
+
+          if (currentFrame !== lastRenderedFrame) {
+            timecode.textContent = formatTimecode(currentFrame);
+            lastRenderedFrame = currentFrame;
+          }
+
+          window.requestAnimationFrame(updateTimecode);
+        };
+
+        window.requestAnimationFrame(updateTimecode);
+      }
+    }
+  }
+
   const projectArt = document.querySelector('.project-feature-art');
   if (projectArt) {
     const videoStyles = document.createElement('style');
