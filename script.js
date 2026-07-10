@@ -1,6 +1,7 @@
 (() => {
   const navToggle = document.querySelector('.nav-toggle');
   const nav = document.querySelector('.site-nav');
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (navToggle && nav) {
     navToggle.addEventListener('click', () => {
@@ -14,9 +15,7 @@
         navToggle.setAttribute('aria-expanded', 'false');
       });
     });
-  }
 
-  if (navToggle && nav) {
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape' && nav.classList.contains('is-open')) {
         nav.classList.remove('is-open');
@@ -26,8 +25,55 @@
     });
   }
 
+  const projectArt = document.querySelector('.project-feature-art');
+  if (projectArt) {
+    const videoStyles = document.createElement('style');
+    videoStyles.textContent = `
+      .project-feature-art.has-project-video::before { display: none; }
+      .project-feature-art.has-project-video { background: #08090b; }
+      .project-feature-video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+      .project-video-overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        background:
+          linear-gradient(180deg, rgba(8,9,11,.08) 45%, rgba(8,9,11,.35) 100%),
+          linear-gradient(90deg, rgba(218,59,50,.08), transparent 42%);
+      }
+      .project-feature-art.has-project-video .project-number {
+        z-index: 2;
+        text-shadow: 0 1px 8px rgba(0,0,0,.85);
+      }
+    `;
+    document.head.appendChild(videoStyles);
+
+    projectArt.classList.add('has-project-video');
+    projectArt.innerHTML = `
+      <video class="project-feature-video" muted loop playsinline preload="metadata" aria-hidden="true" tabindex="-1">
+        <source src="ntdqiasa_video_v5_web.mp4" type="video/mp4">
+      </video>
+      <div class="project-video-overlay" aria-hidden="true"></div>
+      <span class="project-number">A-01</span>
+    `;
+
+    const projectVideo = projectArt.querySelector('.project-feature-video');
+    if (projectVideo && !prefersReduced) {
+      projectVideo.autoplay = true;
+      projectVideo.play().catch(() => {
+        // El primer cuadro permanece visible si el navegador bloquea el autoplay.
+      });
+    }
+  }
+
   const revealItems = document.querySelectorAll('.reveal');
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (prefersReduced || !('IntersectionObserver' in window)) {
     revealItems.forEach((item) => item.classList.add('is-visible'));
