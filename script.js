@@ -4,6 +4,41 @@
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const linkedinUrl = 'https://www.linkedin.com/in/guillermo-barbeito-040632340/';
 
+  const activeLanguage = document.documentElement.lang.toLowerCase().startsWith('en') ? 'en' : 'es';
+  const assetPrefix = activeLanguage === 'en' ? '../' : '';
+  const translations = {
+    es: {
+      linkedinAria: 'Ver el perfil de Guillermo Barbeito en LinkedIn',
+      linkedinSchemaWarning: 'No se pudo actualizar el perfil de LinkedIn en los datos estructurados.',
+      writingIntro: 'Novela inédita y escritura para pantalla. Manuscritos, desarrollo narrativo y proyectos de ficción.',
+      machineCoverLabel: 'INÉDITA',
+      machineKicker: 'NOVELA INÉDITA / MANUSCRITO COMPLETO',
+      machineDescription: 'Novela de ciencia ficción inédita. El manuscrito completo fue presentado a varios concursos literarios durante 2026; la obra no ha sido publicada.',
+      machineTags: ['CIENCIA FICCIÓN', 'INÉDITA', 'MANUSCRITO COMPLETO', 'CONCURSOS 2026'],
+      autoplayBlocked: 'El primer cuadro permanece visible si el navegador bloquea el autoplay.'
+    },
+    en: {
+      linkedinAria: 'View Guillermo Barbeito’s LinkedIn profile',
+      linkedinSchemaWarning: 'LinkedIn profile could not be updated in structured data.',
+      writingIntro: 'Unpublished fiction and screenwriting. Manuscripts, narrative development and fiction projects.',
+      machineCoverLabel: 'UNPUBLISHED',
+      machineKicker: 'UNPUBLISHED NOVEL / COMPLETE MANUSCRIPT',
+      machineDescription: 'An unpublished science-fiction novel. The complete manuscript was submitted to several literary competitions during 2026; the work has not been published.',
+      machineTags: ['SCIENCE FICTION', 'UNPUBLISHED', 'COMPLETE MANUSCRIPT', '2026 COMPETITIONS'],
+      autoplayBlocked: 'The first frame remains visible if the browser blocks autoplay.'
+    }
+  };
+  const t = translations[activeLanguage];
+
+  document.querySelectorAll('[data-language-option]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const language = link.dataset.languageOption;
+      if (language === 'es' || language === 'en') {
+        try { window.localStorage.setItem('portfolio-language', language); } catch (error) {}
+      }
+    });
+  });
+
   if (navToggle && nav) {
     navToggle.addEventListener('click', () => {
       const isOpen = nav.classList.toggle('is-open');
@@ -34,7 +69,7 @@
     linkedinLink.target = '_blank';
     linkedinLink.rel = 'noopener noreferrer';
     linkedinLink.dataset.linkedin = 'true';
-    linkedinLink.setAttribute('aria-label', 'Ver el perfil de Guillermo Barbeito en LinkedIn');
+    linkedinLink.setAttribute('aria-label', t.linkedinAria);
     linkedinLink.innerHTML = '<span>LINKEDIN</span><strong>Guillermo Barbeito</strong><i>↗</i>';
 
     const githubLink = Array.from(contactActions.querySelectorAll('.contact-line'))
@@ -56,7 +91,7 @@
       structuredData.sameAs = sameAs;
       personSchema.textContent = JSON.stringify(structuredData, null, 2);
     } catch (error) {
-      console.warn('No se pudo actualizar el perfil de LinkedIn en los datos estructurados.', error);
+      console.warn(t.linkedinSchemaWarning, error);
     }
   }
 
@@ -65,7 +100,7 @@
 
     const stylesheet = document.createElement('link');
     stylesheet.rel = 'stylesheet';
-    stylesheet.href = 'code-background.css';
+    stylesheet.href = `${assetPrefix}code-background.css`;
     document.head.appendChild(stylesheet);
 
     const phrases = [
@@ -300,7 +335,7 @@
     projectArt.classList.add('has-project-video');
     projectArt.innerHTML = `
       <video class="project-feature-video" muted loop playsinline preload="metadata" aria-hidden="true" tabindex="-1">
-        <source src="ntdqiasa_video_v5_web.mp4" type="video/mp4">
+        <source src="${assetPrefix}ntdqiasa_video_v5_web.mp4" type="video/mp4">
       </video>
       <div class="project-video-overlay" aria-hidden="true"></div>
       <span class="project-number">A-01</span>
@@ -310,7 +345,7 @@
     if (projectVideo && !prefersReduced) {
       projectVideo.autoplay = true;
       projectVideo.play().catch(() => {
-        // El primer cuadro permanece visible si el navegador bloquea el autoplay.
+        if (activeLanguage === 'es') console.info(t.autoplayBlocked);
       });
     }
   }
@@ -323,7 +358,7 @@
 
     const sectionIntro = writingSection.querySelector('.section-heading > p');
     if (sectionIntro) {
-      sectionIntro.textContent = 'Novela inédita y escritura para pantalla. Manuscritos, desarrollo narrativo y proyectos de ficción.';
+      sectionIntro.textContent = t.writingIntro;
     }
 
     const machineCard = writingSection.querySelector('.writing-card-primary');
@@ -334,14 +369,14 @@
       const description = machineCard.querySelector('.writing-card-copy > p');
       const tags = machineCard.querySelector('.tech-tags');
 
-      if (coverLabel) coverLabel.textContent = 'INÉDITA';
+      if (coverLabel) coverLabel.textContent = t.machineCoverLabel;
       if (coverIndex) coverIndex.textContent = '01';
-      if (kicker) kicker.textContent = 'NOVELA INÉDITA / MANUSCRITO COMPLETO';
+      if (kicker) kicker.textContent = t.machineKicker;
       if (description) {
-        description.textContent = 'Novela de ciencia ficción inédita. El manuscrito completo fue presentado a varios concursos literarios durante 2026; la obra no ha sido publicada.';
+        description.textContent = t.machineDescription;
       }
       if (tags) {
-        tags.innerHTML = '<span>CIENCIA FICCIÓN</span><span>INÉDITA</span><span>MANUSCRITO COMPLETO</span><span>CONCURSOS 2026</span>';
+        tags.innerHTML = t.machineTags.map((tag) => `<span>${tag}</span>`).join('');
       }
     }
 
