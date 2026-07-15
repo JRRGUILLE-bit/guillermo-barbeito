@@ -12,9 +12,13 @@
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="google-site-verification" content="N3N9ww8UlENGI34N0jalMqL5cs5qbOLsxG3eL_jdU_I">
   <link rel="canonical" href="https://jrrguille-bit.github.io/guillermo-barbeito/">
+  <link rel="alternate" hreflang="es-UY" href="https://jrrguille-bit.github.io/guillermo-barbeito/">
+  <link rel="alternate" hreflang="en" href="https://jrrguille-bit.github.io/guillermo-barbeito/en/">
+  <link rel="alternate" hreflang="x-default" href="https://jrrguille-bit.github.io/guillermo-barbeito/">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_UY">
+  <meta property="og:locale:alternate" content="en_US">
   <meta property="og:site_name" content="Guillermo Barbeito">
   <meta property="og:title" content="Guillermo Barbeito — Creativo, escritor y productor audiovisual">
   <meta property="og:description" content="Historias, producción audiovisual, streaming y herramientas para llevar ideas del papel a la pantalla.">
@@ -35,7 +39,27 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lekton:wght@400;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script>document.documentElement.classList.add('js');</script>
+  <script>
+    document.documentElement.classList.add('js');
+    (() => {
+      try {
+        const key = 'portfolio-language';
+        const saved = window.localStorage.getItem(key);
+        if (saved === 'en') {
+          window.location.replace('./en/');
+          return;
+        }
+        if (saved === 'es') return;
+        const preferred = Array.isArray(navigator.languages) && navigator.languages.length
+          ? navigator.languages
+          : [navigator.language || ''];
+        const hasSpanish = preferred.some((language) => String(language).toLowerCase().startsWith('es'));
+        if (!hasSpanish) window.location.replace('./en/');
+      } catch (error) {
+        // Si localStorage no está disponible, se mantiene la versión x-default en español.
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="visual-qa.css">
   <link rel="stylesheet" href="code-background.css">
@@ -103,6 +127,11 @@
       <span class="brand-mark">GB</span>
       <span class="brand-status"><i></i> Montevideo / UY</span>
     </a>
+    <div class="language-switcher" aria-label="Selector de idioma">
+      <a href="./" lang="es-UY" data-language-option="es" aria-label="Ver versión en español" aria-current="page">ES</a>
+      <span aria-hidden="true">/</span>
+      <a href="en/" lang="en" data-language-option="en" aria-label="View English version">EN</a>
+    </div>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menú</button>
     <nav id="site-nav" class="site-nav">
       <a href="#perfil">Perfil</a>
