@@ -468,5 +468,13 @@
   </footer>
 
   <script src="../script.js" defer></script>
+  <script>
+    window.goatcounter = {
+      path: function () {
+        return '/audiovisual' + (window.location.pathname || '/') + window.location.search;
+      }
+    };
+  </script>
+  <script data-goatcounter="https://jrrguille.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>
