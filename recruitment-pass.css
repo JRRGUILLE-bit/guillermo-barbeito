@@ -211,3 +211,68 @@
 @media (prefers-reduced-motion: reduce) {
   .floating-contact { transition: none; }
 }
+
+
+/* Mobile QA corrections: fit the name and provide usable touch areas. */
+@media (max-width: 560px) {
+  .site-header .brand {
+    min-height: 44px;
+  }
+
+  .site-header .brand-mark {
+    display: inline-grid;
+    place-items: center;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0;
+  }
+
+  .site-header .language-switcher {
+    gap: 0.2rem;
+    margin-right: 0.35rem;
+  }
+
+  .site-header .language-switcher a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0.5rem;
+  }
+
+  .site-header .nav-toggle {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0.6rem 0.75rem;
+  }
+
+  .hero h1 {
+    max-width: 100%;
+    font-size: clamp(2.9rem, 14vw, 3.4rem);
+    line-height: 0.92;
+  }
+
+  .text-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0.55rem 0.2rem;
+  }
+
+  .button {
+    min-height: 44px;
+  }
+
+  .skip-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  .site-footer a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}
